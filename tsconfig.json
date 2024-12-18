@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                    // 输出的 JavaScript 版本
+    "module": "CommonJS",               // Node.js 使用的模块系统
+    "outDir": "./dist",                 // 编译后的 JavaScript 文件放在 dist 文件夹
+    "esModuleInterop": true,            // 允许默认导入非 ES 模块
+    "strict": true                      // 启用严格类型检查
+  },
+  "include": ["app/**/*.ts", "server/**/*.ts"],           // 包含的 TypeScript 文件路径
+  "exclude": ["node_modules"]           // 排除的文件或文件夹
+}
