@@ -1,6 +1,5 @@
 import screenshot from 'screenshot-desktop';
-const axios = require('axios');
-const fs = require('fs'); // or import * as fs from 'fs';
+import axios from 'axios'
 
 async function captureScreen() {
     const img = await screenshot({ format: 'jpeg' });  

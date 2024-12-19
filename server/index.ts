@@ -1,7 +1,8 @@
 import express from 'express';
 import multer from 'multer';
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
+import os from 'os';
 
 const app = express();
 const port = 3000;
@@ -31,6 +32,22 @@ app.post('/upload', upload.single('file'), (req: any, res: any) => {
   console.log('File uploaded successfully:', req.file);
   res.status(200).send({ message: 'File uploaded successfully', filename: req.file.filename });
 });
+
+const getLocalIP = () => {
+  const interfaces = os.networkInterfaces();
+  for (const name in interfaces) {
+    if (interfaces[name]) {
+      for (const iface of interfaces[name]) {
+        if (iface.family === 'IPv4' && !iface.internal) {
+          return iface.address;
+        }
+      }
+    }
+  }
+  return 'IP not found';
+};
+
+console.log('Local IP Address:', getLocalIP());
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
