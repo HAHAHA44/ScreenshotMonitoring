@@ -1,4 +1,4 @@
-fix time screen capture and send to server
+fixed time screen capture and send to server
 
 Run the clinet
 ```
